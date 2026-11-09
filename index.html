@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#17152f">
+  <title>DevCourse — 16-Bit Game Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+ <audio id="bgMusic" src="assets/YTDown.com_YouTube_Media_99TjczXQB-g_Can-t-Stop-Coming-SNES-Station-Menu-Music_006_128k.mp3" loop preload="auto"></audio>
+<body>
+
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#" aria-label="DevCourse, início">
+        <span class="brand-icon"><i class="fa-solid fa-gamepad"></i></span>
+        <span class="brand-name">DEV<span>COURSE</span></span>
+      </a>
+      <div class="header-right">
+        <span class="system-label"><span class="status-dot"></span> 16-BIT SYSTEM READY</span>
+        <button id="themeToggle" class="pixel-button theme-button" type="button">
+          <i id="themeIcon" class="fa-solid fa-sun"></i>
+          <span id="themeText">TEMA CLARO</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">★ MEUS JOGOS • HOMEBREW SNES ★</p>
+        <h1>RETRO GAME<br><span>CARTRIDGE SELECT</span></h1>
+        <p class="hero-description">Jogue os melhores títulos da nintendo diretamente no navegador, emulados via hardware virtual.</p>
+        <div class="hero-tags">
+          <span><i class="fa-solid fa-microchip"></i> EMULAÇÃO SNES • SNE9X</span>
+          <span><i class="fa-solid fa-shield-halved"></i> 100% NÃO AUTORAL & ILEGAL</span>
+        </div>
+      </div>
+      <div class="hero-decoration" aria-hidden="true">
+        <div class="pixel-sun"></div>
+        <div class="pixel-cloud cloud-one"></div>
+        <div class="pixel-cloud cloud-two"></div>
+        <div class="pixel-hill hill-one"></div>
+        <div class="pixel-hill hill-two"></div>
+        <div class="pixel-cartridge"><span>16</span></div>
+      </div>
+    </section>
+
+    <section class="notice-panel">
+      <i class="fa-solid fa-circle-info"></i>
+      <p><strong>Repositório GitHub:</strong> Todos os jogos, capas e vídeos carregam diretamente dos arquivos locais do site. Edite o array de jogos no arquivo <code>script.js</code> para customizar.</p>
+    </section>
+
+    <section class="library-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">PLAYER 1 • BIBLIOTECA DE HOMEBREWS</p>
+          <h2>SELECIONE UM CARTUCHO</h2>
+        </div>
+        <span id="libraryCount" class="level-tag"><i class="fa-solid fa-layer-group"></i> 0 JOGOS</span>
+      </div>
+
+      <div id="gamesGrid" class="games-grid" aria-live="polite"></div>
+    </section>
+
+    <footer class="site-footer">
+      <span>DEVCOURSE • HOMEBREW LIBRARY</span>
+      <span>INSERT CARTRIDGE <i class="fa-solid fa-heart"></i> PRESS START</span>
+    </footer>
+  </main>
+
+  <div id="emulatorModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="emulatorTitle">
+    <div class="emulator-window">
+      <div class="emulator-header">
+        <div class="emulator-heading">
+          <p class="eyebrow">NOW PLAYING • SNES EMULATOR</p>
+          <h2 id="emulatorTitle">CARREGANDO JOGO</h2>
+        </div>
+        <button id="closeEmulatorBtn" class="close-button" type="button" aria-label="Fechar emulador">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="emulator-toolbar">
+        <span><i class="fa-solid fa-circle green-dot"></i> EMULAÇÃO NO NAVEGADOR</span>
+        <span>ESC • FECHAR JANELA</span>
+      </div>
+      <div id="playerMount" class="player-mount">
+        <div class="player-placeholder">
+          <i class="fa-solid fa-gamepad"></i>
+          <p>PREPARANDO O CONSOLE...</p>
+          <small>O EMULADOR SERÁ CARREGADO AQUI</small>
+        </div>
+      </div>
+      <div class="emulator-footer">
+        <span id="emulatorFileName"></span>
+        <span>CONTROLES E TELA CHEIA: MENU DO EMULADOR</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
